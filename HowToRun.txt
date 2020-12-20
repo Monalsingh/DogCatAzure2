@@ -1,0 +1,37 @@
+our name file name should be app.py
+
+our flask instance name should be app
+	app:app
+create a name file and name it as Procfile 
+	note: Procfile should have no extension and P should be in capital case
+In Procfile we are suppose to mention commands which will be used by the cloud instance at the time of deployment
+
+git init
+git add .
+git commit -m "Initial commit"
+
+#steps to push your application from local to heroku cloud
+heroku login
+
+heroku create 
+
+git remote -v
+
+
+git remote add origin remoteurl
+
+git push origin master
+----------------------------------------------------------------------------------------------
+# Steps we are following to deploy our app on AWS Elastic BeanStalk
+
+Step1: Your main python file name should be application.py
+Step2: Your flask object name, which we have defined in application.py should also be the application. 
+Step3: .ebignore  is responsible to hold the name of those files which we don't want to push on a cloud.
+Step4: Create a requirements.txt file
+        command : pip freeze > requirements.txt
+Step5: Create a folder in your application and name it as .ebextensions
+Step6: Inside .ebextensions we have to create a new file and name it as python.config
+Step7: In python.config we are suppose to mention the below commands
+         option_settings:
+              "aws:elasticbeanstalk:container:python":
+                WSGIPath: application:application
